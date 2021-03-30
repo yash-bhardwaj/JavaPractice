@@ -1,35 +1,23 @@
 package yash.practice.java;
 
-import yash.practice.java.custom.map.Node;
-import yash.practice.java.custom.map.YashMap;
+import yash.practice.java.custom.singlylinkedlist.Node;
 
 public class Main {
     public static void main(String[] args) {
+        Node<Integer> list = new Node<>();
+        Node<Integer> head = null;
 
-        YashMap<Integer, String > myMap = new YashMap<>();
-        myMap.put(5, "Yash5");
-        myMap.put(15, "Yash15");
-        myMap.put(25, "Yash25");
-        myMap.put(75, "Yash75");
-        myMap.put(71, "Yash75");
-        myMap.put(72, "Yash75");
-        myMap.put(73, "Yash75");
-        myMap.put(74, "Yash75");
-        myMap.put(76, "Yash75");
-        myMap.put(78, "Yash75");
-        myMap.put(82, "Yash85");
-        System.out.println(myMap.get(25));
-        System.out.println(myMap.containsKey(9));
-        Node<Integer, String>[] list = myMap.entries();
-        for (Node<Integer, String> customEntry : list) {
-            System.out.println(customEntry);
-        }
 
-        myMap.remove(75);
+        head = list.add(head, 10);
+        head = list.add(head, 101);
+        head = list.add(head, 104);
+        head = list.add(head, 102);
+        head = list.add(head, 100);
+        head = list.addNodeOnIndexFromStart(head, 111, 5);
+        list.printList(head);
+        System.out.println();
+        head = head.reverse(head);
+        list.printList(head);
 
-        System.out.println("\n");
-        for (Node<Integer, String> customEntry : list) {
-           System.out.println(customEntry);
-        }
     }
 }
