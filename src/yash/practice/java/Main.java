@@ -9,11 +9,11 @@ public class Main {
 
 
         head = list.add(head, 10);
-        head = list.add(head, 101);
+        head = list.add(head, 100);
         head = list.add(head, 104);
         head = list.add(head, 102);
         head = list.add(head, 100);
-        head = list.addNodeOnIndexFromStart(head, 111, 5);
+        head = list.addNodeOnIndexFromEnd(head, 111, 5);
         list.printList(head);
         System.out.println();
         head = head.reverse(head);

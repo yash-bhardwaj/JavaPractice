@@ -43,6 +43,45 @@ public class Node<T> {
 
     // 2. Remove element from nth position from start of the list
     // 3. Add element to nth position from end of the list
+    public Node<T> addNodeOnIndexFromEnd(Node<T> head, T val, int index) {
+        Node<T> node = new Node<T>() {{
+            this.value = val;
+            this.next = null;
+        }};
+        if (head == null) {
+            return node;
+        } else {
+            int size = getSize(head);
+            if (index == size) {
+                node.next = head;
+                return node;
+            }
+            int i = 0;
+            Node<T> current = head;
+            while (i != index+1) {
+                i++;
+                current = current.next;
+            }
+            Node<T> idNode = head;
+            while (current != null) {
+                idNode = idNode.next;
+                current = current.next;
+            }
+            node.next = idNode.next;
+            idNode.next = node;
+            return head;
+        }
+    }
+
+    private int getSize(Node<T> head) {
+        int i = 0;
+        while (head != null) {
+            head = head.next;
+            i++;
+        }
+        return i;
+    }
+
     // 4. Remove element from nth position from end of the list
     // 5. print all the elements
     public void printList(Node<T> head) {
